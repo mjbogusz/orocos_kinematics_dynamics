@@ -39,7 +39,7 @@
     // If argument is a Python string, assume it's UTF-8
      if (sipIsErr == NULL)
 #if PY_MAJOR_VERSION < 3
-        return (PyString_Check(sipPy) || PyUnicode_Check(sipPy));
+        return (PyBytes_Check(sipPy) || PyUnicode_Check(sipPy));
 #else
         return PyUnicode_Check(sipPy);
 #endif
@@ -54,8 +54,8 @@
         return 1;
      }
 #if PY_MAJOR_VERSION < 3
-     if (PyString_Check(sipPy)) {
-        *sipCppPtr = new std::string(PyString_AS_STRING(sipPy));
+     if (PyBytes_Check(sipPy)) {
+        *sipCppPtr = new std::string(PyBytes_AS_STRING(sipPy));
         return 1;
      }
 #endif
@@ -63,4 +63,3 @@
      return 0;
 %End
 };
-
