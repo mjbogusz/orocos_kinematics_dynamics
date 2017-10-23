@@ -49,7 +49,7 @@
      }
      if (PyUnicode_Check(sipPy)) {
         PyObject* s = PyUnicode_AsEncodedString(sipPy, "UTF-8", "");
-        *sipCppPtr = new std::string(PyBytes_AS_STRING(PyUnicode_AS_DATA(s)));
+        *sipCppPtr = new std::string(PyBytes_AS_STRING(s));
         Py_DECREF(s);
         return 1;
      }
