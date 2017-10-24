@@ -10,9 +10,6 @@ endif()
 
 project(python_orocos_kdl)
 
-# set(PYTHON_LIBRARY '/usr/lib/libpython3.5m.so')
-# set(PYTHON_INCLUDE_DIR '/usr/include/python3.5m')
-
 find_package(ament_cmake REQUIRED)
 find_package(orocos_kdl)
 include_directories(${orocos_kdl_INCLUDE_DIRS})
